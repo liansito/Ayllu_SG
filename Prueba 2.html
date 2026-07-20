@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KANANSG | Automatización Elegante</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Prueba 2.css">
+</head>
+<body>
+
+    <div class="background-split"></div>
+
+    <div class="container">
+        <nav class="navbar">
+            <div class="nav-left">
+                <a href="#" class="active">Inicio</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#impacto">Impacto</a>
+            </div>
+            
+            <div class="brand">
+                <img src="logo.png" alt="Logo" class="brand-logo" onerror="this.style.display='none';">
+                <span class="brand-text">Kanansg</span>
+            </div>
+
+            <div class="nav-right">
+                <a href="#contacto" class="nav-icon">🔍</a>
+                <a href="#contacto" class="nav-icon">♡</a>
+                <a href="#contacto" class="nav-icon">✉</a>
+            </div>
+        </nav>
+
+        <main class="hero">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    Sistemas Inteligentes <br>
+                    <span class="inline-pill-container">
+                        <span class="inline-pill">[ IMG ]</span>
+                    </span>
+                    Para Tu Negocio
+                </h1>
+                <p class="hero-subtitle">
+                    Gestionamos tu ecosistema de software y conectamos tus plataformas mediante integraciones API avanzadas para que tu modelo comercial opere solo.
+                </p>
+                <div class="hero-actions">
+                    <a href="#contacto" class="btn btn-dark">Cotizar <span>→</span></a>
+                    <a href="#servicios" class="btn btn-outline">
+                        <span class="play-icon">▶</span> Ver Soluciones
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visuals">
+                <div class="image-tall">
+                    [ IMG DASHBOARD ]
+                </div>
+                <div class="image-arch">
+                    [ IMG CHATBOT ]
+                </div>
+                <div class="decor-circle"></div>
+                <div class="decor-dots"></div>
+            </div>
+        </main>
+
+        <section class="bottom-bar" id="impacto">
+            <div class="bar-dark-box">
+                [ ICONO ]
+            </div>
+            <div class="bar-stats">
+                <div class="stat">
+                    <h2>98%</h2>
+                    <p>Tasa de Apertura</p>
+                </div>
+                <div class="stat divider">
+                    <h2>24/7</h2>
+                    <p>Disponibilidad</p>
+                </div>
+                <div class="stat">
+                    <h2>+500</h2>
+                    <p>Horas Ahorradas</p>
+                </div>
+            </div>
+            <div class="bar-explore">
+                <a href="#contacto" class="explore-circle">
+                    <span class="arrow">↓</span>
+                    <svg class="circular-text" viewBox="0 0 100 100">
+                        <path d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" id="circle-path" fill="none" />
+                        <text><textPath href="#circle-path">Cotizar Proyecto • Iniciar Ahora •</textPath></text>
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <section id="contacto" class="contact-section">
+            <div class="contact-card">
+                <h2 class="contact-title">Inicia tu Automatización</h2>
+                <p class="contact-desc">Déjanos tus datos y nuestro sistema te contactará para una consultoría inicial.</p>
+                
+                <form id="appointmentForm" class="elegant-form">
+                    <div class="input-group">
+                        <input type="text" id="nombre" required placeholder="Tu Nombre / Empresa">
+                    </div>
+                    <div class="input-group">
+                        <input type="tel" id="telefono" required placeholder="Teléfono (WhatsApp)">
+                    </div>
+                    <div class="input-group">
+                        <select id="servicio">
+                            <option value="" disabled selected>Selecciona un servicio...</option>
+                            <option value="Integracion Basica">Plan Esencial</option>
+                            <option value="Automatizacion Pro">Plan Automatización Pro</option>
+                            <option value="Ecosistema Custom">Plan Ecosistema Custom</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-dark w-full">Solicitar Cotización</button>
+                </form>
+                <p id="responseMessage" class="response-msg"></p>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        const form = document.getElementById("appointmentForm");
+        const responseMessage = document.getElementById("responseMessage");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const datosCita = {
+                nombre: document.getElementById("nombre").value,
+                telefono: document.getElementById("telefono").value,
+                servicio: document.getElementById("servicio").value,
+            };
+
+            responseMessage.style.display = "block";
+            responseMessage.textContent = "Procesando solicitud...";
+            responseMessage.className = "response-msg status-loading";
+
+            try {
+                const URL_WEBHOOK = "https://hook.us2.make.com/egwbwjtmmd24yppc0e8p926u5tnnkp2j";
+
+                const response = await fetch(URL_WEBHOOK, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(datosCita),
+                });
+
+                if (response.ok) {
+                    responseMessage.textContent = "✓ Solicitud recibida con éxito.";
+                    responseMessage.className = "response-msg status-success";
+                    form.reset();
+                } else {
+                    throw new Error();
+                }
+            } catch (error) {
+                responseMessage.textContent = "✕ Error en la conexión. Intenta de nuevo.";
+                responseMessage.className = "response-msg status-error";
+            }
+        });
+    </script>
+</body>
+</html>

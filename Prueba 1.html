@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KANANSG | Gestión de Software y Automatización</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Prueba 1.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="brand">
+                <img src="logo.png" alt="Kanansg Logo" class="brand-logo" onerror="this.style.display='none';">
+                <span class="brand-text">KANANSG</span>
+            </div>
+            <div class="nav-links">
+                <a href="#soluciones">Soluciones</a>
+                <a href="#impacto">Impacto</a>
+                <a href="#contacto">Cotizar</a>
+            </div>
+            <a href="#contacto" class="btn btn-primary">Agendar Demo</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="badge">Integraciones API & Software</span>
+                <h1 class="hero-title">
+                    DELEGA TU <br>
+                    <span class="text-gradient">OPERACIÓN</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Gestionamos tu ecosistema de software y conectamos tus plataformas mediante integraciones API avanzadas para que tu modelo comercial opere en piloto automático.
+                </p>
+                <div class="hero-actions">
+                    <a href="#contacto" class="btn btn-gradient">Iniciar Automatización</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="visual-placeholder">
+                    [ ESPACIO PARA IMAGEN PRINCIPAL O DASHBOARD ]
+                    <div class="floating-card">
+                        <div class="icon-circle icon-green">✔</div>
+                        <div>
+                            <p class="card-title">Sistemas Conectados</p>
+                            <p class="card-text">Operación 24/7</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="impacto" class="stats">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <h3>98%</h3>
+                <p>Tasa de Apertura</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>Disponibilidad</p>
+            </div>
+            <div class="stat-item">
+                <h3>10x</h3>
+                <p>Retorno de Inversión</p>
+            </div>
+            <div class="stat-item highlight">
+                <h3>+500</h3>
+                <p>Horas Ahorradas</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="soluciones" class="features">
+        <div class="container">
+            <div class="features-header">
+                <h2>Arquitectura diseñada para escalar tu negocio</h2>
+                <p>Conectamos tus plataformas actuales con agentes de IA y automatizaciones a medida.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card border-blue">
+                    <div class="card-image">[ IMG: CHATBOT ]</div>
+                    <h3>Agentes Inteligentes</h3>
+                    <p>Bots conversacionales que entienden el contexto, agendan citas y responden dudas técnicas de tus clientes al instante.</p>
+                </div>
+                
+                <div class="feature-card border-cyan featured-card">
+                    <span class="card-badge">Más Solicitado</span>
+                    <div class="card-image">[ IMG: FLUJOS API ]</div>
+                    <h3>Integración API & Webhooks</h3>
+                    <p>Conectamos tu CRM, correos y bases de datos para que la información fluya sin intervención humana.</p>
+                </div>
+
+                <div class="feature-card border-orange">
+                    <div class="card-image">[ IMG: DASHBOARD ]</div>
+                    <h3>Gestión de Software Custom</h3>
+                    <p>Portales y landing pages ultrarrápidas que sirven como ecosistema central para tus usuarios y clientes comerciales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="decor decor-1"></div>
+                <div class="decor decor-2"></div>
+
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2>Listos para construir tu ecosistema</h2>
+                        <p>Déjanos tus datos. Nuestro sistema automatizado registrará tu solicitud y te contactaremos para una consultoría técnica inicial.</p>
+                    </div>
+
+                    <div class="contact-form-container">
+                        <form id="appointmentForm">
+                            <div class="form-group">
+                                <label>Tu Nombre / Empresa</label>
+                                <input type="text" id="nombre" required placeholder="Ej: Juan Pérez">
+                            </div>
+                            <div class="form-group">
+                                <label>Teléfono (WhatsApp)</label>
+                                <input type="tel" id="telefono" required placeholder="Ej: +52 ...">
+                            </div>
+                            <div class="form-group">
+                                <label>Servicio de Interés</label>
+                                <select id="servicio">
+                                    <option value="Integracion Basica">Plan Esencial</option>
+                                    <option value="Automatizacion Pro">Plan Automatización Pro</option>
+                                    <option value="Ecosistema Custom">Plan Ecosistema Custom / Hosting Multi-tenant</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-submit">Solicitar Cotización</button>
+                        </form>
+                        <p id="responseMessage" class="response-msg"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 KANANSG. Arquitectura de Software y Automatización.</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById("appointmentForm");
+        const responseMessage = document.getElementById("responseMessage");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const datosCita = {
+                nombre: document.getElementById("nombre").value,
+                telefono: document.getElementById("telefono").value,
+                servicio: document.getElementById("servicio").value,
+            };
+
+            responseMessage.style.display = "block";
+            responseMessage.textContent = "Procesando solicitud de integración...";
+            responseMessage.className = "response-msg status-loading";
+
+            try {
+                const URL_WEBHOOK = "https://hook.us2.make.com/egwbwjtmmd24yppc0e8p926u5tnnkp2j";
+
+                const response = await fetch(URL_WEBHOOK, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(datosCita),
+                });
+
+                if (response.ok) {
+                    responseMessage.textContent = "✓ Solicitud recibida. Nuestro sistema te contactará pronto.";
+                    responseMessage.className = "response-msg status-success";
+                    form.reset();
+                } else {
+                    throw new Error();
+                }
+            } catch (error) {
+                responseMessage.textContent = "✕ Ocurrió un error en la conexión. Intenta de nuevo.";
+                responseMessage.className = "response-msg status-error";
+            }
+        });
+    </script>
+</body>
+</html>
